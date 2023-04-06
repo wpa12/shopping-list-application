@@ -11,7 +11,6 @@
 </head>
 <body class="antialiased">
     <div class="app-wrapper h-full flex flex-col">
-        
         <div class="navbar bg-neutral text-neutral-content justify-between">
             <h1 class="btn btn-ghost normal-case text-xl">
                 Mayden Shopping List

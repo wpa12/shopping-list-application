@@ -8,8 +8,22 @@ Please follow the steps below to set up the project - or feel free to just brows
 The Tesco API is currently inactive so i was unable to use this.
 
 ***
-User Journeys that were Covered in this :
+User Journeys that were Covered in this:
 
+* Item 1 - Create a shopping list that can contain a list of groceries
+* Item 2 - Create a way for a user to add an item to the shopping list
+* Item 3 - Create a way for a user to remove an item from the shopping list
+* Item 4 - (think this is done, might have been confused on this)
+* Item 5 - Persist shopping list state between page visits
+* Item 7 - API was no functional
+* Item 8 - Total up the prices of each list
+* Item 9 - Put a spending limit and notify when limit is exceeded
+* Item 11 - Build and authentication system for the user
+
+Outstanding items (ran out of time)
+
+* Item 6 - reordering the items.
+* Item 10 - Emailing functionality.
 
 ***
 ## Setup:

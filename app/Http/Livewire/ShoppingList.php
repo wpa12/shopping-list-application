@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
-use Money\Currency;
-use Money\Money;
-
 class ShoppingList extends Component
 {
     public $list_items = [];
@@ -83,7 +80,7 @@ class ShoppingList extends Component
         return $this->emitTo(ListHistory::class , 'list_created', [Auth::user()->id]);
     }
 
-
+    
     /**
      * update active list after a list is deleted
      */
@@ -214,7 +211,11 @@ class ShoppingList extends Component
         //
     }
 
-
+    /** set spending cap */
+    public function set_spending_cap () {
+        //
+    }
+    
     public function render()
     {
         return view('livewire.shopping-list');
