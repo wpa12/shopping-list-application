@@ -36,7 +36,7 @@ cd shopping-list-application
 composer install
 npm install
 
-cp .env-example .env
+cp .env.example .env
 ```
 
 from here add your database credentials in the projects .env file.
