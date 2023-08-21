@@ -10,7 +10,7 @@
                 @if($active_list !== null)
                 <h3 class="text-xl text-cyan-400">Shopping List Selected: {{ $active_list->name }}</h3>
                 @endif
-                <ul class="flex gap-5 flex-col bg-neutral rounded-lg p-5">
+                <ul class="flex gap-5 flex-col bg-neutral rounded-lg p-5" style="max-height:250px; overflow:scroll;">
                     @if(!$active_list_items)
                         <li class="text-white text-center">Please select a list from history, or make a new list</li>
                     @endif
@@ -34,7 +34,7 @@
                         </li>
                         @endforeach
                         @endif
-                        <li>Shopping Total: £{{$shopping_list_total}} </li>
+                        <li>Shopping Total: £{{number_format($shopping_list_total, 2)}} </li>
                     </ul>
                     <div class="card-actions flex justify-center flex-col">
                     @if(isset($active_list))

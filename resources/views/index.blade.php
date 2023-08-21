@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Mayden|Shopping List</title>
+    <title>Shopping List</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="//unpkg.com/alpinejs" defer></script>
     @livewireStyles
@@ -13,7 +13,7 @@
     <div class="app-wrapper h-full flex flex-col">
         <div class="navbar bg-neutral text-neutral-content justify-between">
             <h1 class="btn btn-ghost normal-case text-xl">
-                Mayden Shopping List
+                Laravel / Livewire Shopping List
             </h1>
             @auth
             <form action="/api/logout" method="POST">
