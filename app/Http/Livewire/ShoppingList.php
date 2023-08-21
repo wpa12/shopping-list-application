@@ -97,10 +97,11 @@ class ShoppingList extends Component
         if(sizeof($prod_details) > 1) {
             ListItem::create([
                 'name' => $prod_details[0],
-                'price' => self::add_product_price($prod_details[1] > 0 ?: 0),
+                'price' => self::add_product_price($prod_details[1] > 0 ? $prod_details[1] : 0),
                 'list_id' => $this->active_list->id,
             ]);
-        } else {
+        } 
+        else {
             ListItem::create([
                 'name' => $prod_details[0],
                 'list_id' => $this->active_list->id,

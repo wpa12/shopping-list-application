@@ -10,11 +10,19 @@
     @livewireStyles
 </head>
 <body class="antialiased">
-    <div class="app-wrapper h-full flex flex-col">
-        <div class="navbar bg-neutral text-neutral-content justify-between">
+    <div class="app-wrapper flex flex-col">
+        <header class="navbar bg-neutral text-neutral-content justify-between flex-1 flex-wrap">
             <h1 class="btn btn-ghost normal-case text-xl">
                 Laravel / Livewire Shopping List
             </h1>
+            <a 
+                href="https://github.com/wpa12/shopping-list-application.git"
+                target="__blank"
+                class="btn btn-success"
+            > 
+                Checkout the Github project
+            </a>
+
             @auth
             <form action="/api/logout" method="POST">
                 @csrf
@@ -22,15 +30,17 @@
                 <button class="btn btn-error">Logout</button>
             </form>
             @endauth
-        </div>
+        </header>
+    </div>
+    <div>
         @auth
-        <div class="wrapper w-full h-full">
+        <div class="wrapper w-full">
             @livewire('shopping-list')
         </div>
         @endauth
         @guest
         <div 
-            class="form-wrapper flex justify-center items-center gap-[5rem] flex-wrap py-[2rem] h-full" 
+            class="form-wrapper flex justify-center items-center gap-[5rem] flex-wrap py-[2rem]" 
             x-data="{register_open: @if($errors->any()) true @else false @endif }" 
             x-transition.duration.200ms
         >
@@ -102,10 +112,10 @@
         </form>
     </div>
     <div 
-    class="flex justify-center items-center" 
-    style="display:none;" 
-    x-show="register_open" 
-    x-transition.duration.200ms
+        class="flex justify-center items-center" 
+        style="display:none;" 
+        x-show="register_open" 
+        x-transition.duration.200ms
     >
     <form action="/api/register" method="POST">
         @csrf
@@ -114,6 +124,10 @@
             <div class="card-body items-center text-center">
                 <h2 class="card-title">Register Now!</h2>
                 <p>Please Enter your details below</p>
+                <div class="alert alert-warning text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    <span>Warning: Test only! Do not use real-world sensitive data.</span>
+                  </div>
                 <div class="card-actions justify-end">
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
@@ -149,7 +163,12 @@
                         <label class="label">
                             <span class="label-text text-base-100">Password:</span>
                         </label>
-                        <input type="password" name="register_password" placeholder="Type here" class="input input-bordered text-white w-full max-w-xs"  />
+                        <input 
+                            type="password" 
+                            name="register_password" 
+                            placeholder="Type here" 
+                            class="input input-bordered text-white w-full max-w-xs"  
+                        />
                         @error('register_password')
                         <p class="text-error text-left">{{ $message }}</p>
                         @enderror
@@ -173,6 +192,9 @@
     </form>
 </div>
 </div>
+<footer class="flex flex-1 p-4 justify-center">
+    <div>All Data posted in the form will be wiped every 24hrs</div>
+</footer>
 @endguest
 </div>
 @livewireScripts

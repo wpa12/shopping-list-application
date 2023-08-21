@@ -1,11 +1,11 @@
-<div class="h-full w-full justify-center items-center flex gap-[5rem]">
+<div class="h-full w-full justify-center items-center flex gap-[5rem] flex-wrap gap-5 py-10">
     <div>
         @livewire('list-history')
     </div>
-    <div class="flex gap-5 flex-col"> 
-        <div class="card w-100 bg-base-200 shadow-xl">
+    <div class="flex gap-5 flex-col flex-wrap"> 
+        <div class="card bg-base-200 shadow-xl h-full">
             <div class="card-body flex gap-5">
-                <h2 class="card-title">Hello {{ Str::ucfirst(Auth::user()->name) . '!' }}</h2>
+                <h2 class="card-title">Hello {{ Str::ucfirst(decrypt(Auth::user()->name)) . '!' }}</h2>
                 <p>Add items, delete items, or simply tick them off your list below.</p>
                 @if($active_list !== null)
                 <h3 class="text-xl text-cyan-400">Shopping List Selected: {{ $active_list->name }}</h3>
@@ -19,7 +19,14 @@
                     @foreach($active_list_items as $list_item)
                     <li class="flex justify-stretch items-center">
                         <div class="flex-1">
-                            <strong @if($list_item->purchased > 0) style="text-decoration:line-through; font-style:italic; color:red;" @endif class="flex-wrap text-white">{{ $list_item->name }}</strong>
+                            <strong 
+                                @if($list_item->purchased > 0) 
+                                    style="text-decoration:line-through; font-style:italic; color:red;" 
+                                @endif 
+                                class="flex-wrap text-white"
+                                >
+                                {{ $list_item->name }}
+                            </strong>
                         </div>
                         <div class="flex-1">£ {{ $list_item->price }}</div>
                         <div class="flex-1">

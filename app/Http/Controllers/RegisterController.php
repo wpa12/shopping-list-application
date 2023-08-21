@@ -10,8 +10,8 @@ class RegisterController extends Controller
     public function __invoke(RegisterUserRequest $request, User $user)
     {
         $user->create([
-            'name'      => $request->register_name,
-            'email'     => $request->register_email_address,
+            'name'      => encrypt($request->register_name),
+            'email'     => Hash('sha256', $request->register_email_address),
             'password'  => bcrypt($request->register_password),
         ]);
 
