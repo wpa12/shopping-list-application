@@ -1,4 +1,4 @@
-<div class="h-full w-full justify-center items-center flex gap-[5rem] flex-wrap gap-5 py-10">
+<div class="h-full w-full justify-center items-center flex gap-[5rem] flex-wrap py-10">
     <div>
         @livewire('list-history')
     </div>
