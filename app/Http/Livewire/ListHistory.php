@@ -20,7 +20,7 @@ class ListHistory extends Component
         'update_list_after_deletion' => 'update_history',
     ];
 
-    public function mount(ListModel $list):void  
+    public function mount(ListModel $list): void  
     {
         $this->list_model = $list;
         $this->current_user = Auth::user();
@@ -48,8 +48,9 @@ class ListHistory extends Component
         $this->find_lists_for_current_user($this->current_user->id);
     }
 
-    public function selected_list($list_id) {
-        return $this->emitTo(ShoppingList::class, 'selected_list', $list_id);
+    public function selected_list($list_id): void 
+    {
+        $this->emitTo(ShoppingList::class, 'selected_list', $list_id);
     }
 
     public function render(): View

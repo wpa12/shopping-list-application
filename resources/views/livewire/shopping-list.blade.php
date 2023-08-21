@@ -19,7 +19,7 @@
                     @foreach($active_list_items as $list_item)
                     <li class="flex justify-stretch items-center">
                         <div class="flex-1">
-                            <strong @if($list_item->purchased > 0) style="text-decoration:line-through;" @endif class="flex-wrap text-white">{{ $list_item->name }}</strong>
+                            <strong @if($list_item->purchased > 0) style="text-decoration:line-through; font-style:italic; color:red;" @endif class="flex-wrap text-white">{{ $list_item->name }}</strong>
                         </div>
                         <div class="flex-1">£ {{ $list_item->price }}</div>
                         <div class="flex-1">
